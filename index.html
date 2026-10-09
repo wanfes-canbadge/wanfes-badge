@@ -33,7 +33,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>🐶 わんフェス 缶バッジづくり</h1>
+  <h1>🐶 わんフェス 缶バッジ写真づくり</h1>
   <p class="lead">好きな写真を選んで、完成した缶バッジをイメージしながら位置と大きさを調整してね！</p>
 
   <div class="panel">
@@ -44,7 +44,7 @@
       <canvas id="canvas" width="900" height="900"></canvas>
       <div class="legend">
         <span><i class="dot visible"></i>ここが表に見える範囲</span>
-        <span><i class="dot wrapin"></i>ここから外は裏側へ</span>
+        <span><i class="dot wrapin"></i>ここは裏側に巻き込まれる範囲</span>
       </div>
       <p class="note">写真を<strong>指1本で移動</strong>、<strong>2本指で拡大・縮小</strong>できます。<br>
       ペットの顔など、残したい部分を「表に見える範囲」の中に入れてね。</p>
@@ -61,12 +61,9 @@
   <div class="panel" id="result" style="display:none">
     <h2 style="font-size:18px;text-align:center;margin:0 0 8px">完成！🎉</h2>
     <img id="preview" alt="完成画像" style="display:block;width:80%;max-width:360px;margin:auto;border-radius:50%">
-    <p class="note">まず画像を保存して、その画像をわんフェス受付のLINEへ送ってね。</p>
+    <p class="note"><strong>画像を長押し</strong>して保存して、その画像を<strong>缶バッジ受付専用LINE</strong>へ送ってね。</p>
     <div class="actions">
-      <button id="save" class="primary">⬇️ 画像を保存</button>
       <button id="again">写真をやり直す</button>
-    </div>
-    <p class="small">※「保存」を押しても保存先が表示されない場合は、画像を長押しして保存してください。</p>
   </div>
 </div>
 
@@ -216,7 +213,7 @@ done.onclick=()=>{
   preview.src=out.toDataURL("image/png");
   result.style.display="block";
   result.scrollIntoView({behavior:"smooth"});
-  statusEl.textContent="完成画像ができました！下の「画像を保存」を押してね。";
+  statusEl.textContent="完成画像ができました！画像を長押しして保存してね。";
 };
 save.onclick=()=>{
   const a=document.createElement('a');a.href=preview.src;a.download="wanfes_badge_32mm.png";a.click();
